@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>LFA</title>
+    <link rel="stylesheet" href="css/indexcss.css">
+    <link rel="shortcut icon" href="media/tiny.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html"><img src="media/pequeno.png"></a></div>
+        <nav>
+            <a href="#home">Início</a>
+            <a href="#classes">Aulas</a>
+            <a href="#benefits">Benefícios</a>
+            <a href="#schedule">Horários</a>
+            <a href="#contact">Contato</a>
+            <a href="Atletas.html">Atletas</a>
+            <button class="auth-button" id="loginBtn">Entrar / Criar Conta</button>
+            <div class="user-info" id="userInfo">
+                <span class="user-name" id="userName"></span>
+                <button class="logout-btn" id="logoutBtn">Sair</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Modal de Autenticação -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h2 class="modal-title">Bem-vindo á Família!</h2>
+            <p class="modal-subtitle">Entra ou crie sua conta para começar</p>
+
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="login">Login</button>
+                <button class="tab-btn" data-tab="cadastro">Criar Conta</button>
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+            <div class="success-message" id="successMessage"></div>
+
+            <!-- Formulário de Login -->
+            <form class="auth-form active" id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="loginSenha">Senha</label>
+                    <input type="password" id="loginSenha" required placeholder="Sua senha">
+                </div>
+                <button type="submit" class="submit-btn" id="loginSubmitBtn">Entrar</button>
+                <div class="loading" id="loginLoading">Processando...</div>
+            </form>
+
+            <!-- Formulário de Cadastro -->
+            <form class="auth-form" id="cadastroForm">
+                <div class="form-group">
+                    <label for="cadastroNome">Nome Completo</label>
+                    <input type="text" id="cadastroNome" required placeholder="Digite seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="cadastroIdade">Idade</label>
+                    <input type="number" id="cadastroIdade" required min="1" max="120" placeholder="Sua idade">
+                </div>
+                <div class="form-group">
+                    <label for="cadastroFaixa">Faixa / Cinto</label>
+                    <select id="cadastroFaixa" required>
+                        <option value="">Selecione...</option>
+                        <option value="Branca">Branca</option>
+                        <option value="Amarela">Amarela</option>
+                        <option value="Laranja">Laranja</option>
+                        <option value="Verde">Verde</option>
+                        <option value="Azul">Azul</option>
+                        <option value="Marrom">Marrom</option>
+                        <option value="Preta">Preta</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cadastroEmail">Email</label>
+                    <input type="email" id="cadastroEmail" required placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="cadastroSenha">Senha</label>
+                    <input type="password" id="cadastroSenha" required minlength="6" placeholder="Mínimo 6 caracteres">
+                </div>
+                <div class="form-group">
+                    <label for="cadastroConfirmarSenha">Confirmar Senha</label>
+                    <input type="password" id="cadastroConfirmarSenha" required placeholder="Digite novamente">
+                </div>
+                <button type="submit" class="submit-btn" id="cadastroSubmitBtn">Criar Conta</button>
+                <div class="loading" id="cadastroLoading">Processando...</div>
+            </form>
+        </div>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1><img src="media/pequeno.png"></h1>
+            <div class="subtitle">MMA & Brazilian Jiu-Jitsu</div>
+            <p>Transforma o teu corpo e mente através das artes marciais. Treino de alta performance com instrutores certificados em um ambiente profissional e motivador.</p>
+            <a href="#contact" class="cta-button">Agende sua Aula Experimental</a>
+        </div>
+    </section>
+
+    <section id="classes" class="classes">
+        <h2 class="section-title">Nossas Modalidades</h2>
+        <div class="classes-grid">
+            <div class="class-card">
+                <h3>Brazilian Jiu-Jitsu</h3>
+                <p>A arte suave que ensina técnicas de defesa pessoal, controle e finalizações no solo.</p>
+                <ul>
+                    <li>Gi e No-Gi</li>
+                    <li>Todos os níveis</li>
+                    <li>Competições regulares</li>
+                    <li>Graduação oficial</li>
+                </ul>
+            </div>
+
+            <div class="class-card">
+                <h3>MMA - Artes Marciais Mistas</h3>
+                <p>Treinamento completo combinando striking, wrestling e jiu-jitsu para combate real.</p>
+                <ul>
+                    <li>Técnicas de striking</li>
+                    <li>Clinch e takedowns</li>
+                    <li>Ground & Pound</li>
+                    <li>Condicionamento físico</li>
+                </ul>
+            </div>
+
+            <div class="class-card">
+                <h3>Condicionamento</h3>
+                <p>Prepare seu corpo para o combate com treinos funcionais de alta intensidade.</p>
+                <ul>
+                    <li>HIIT para lutadores</li>
+                    <li>Força e resistência</li>
+                    <li>Mobilidade e flexibilidade</li>
+                    <li>Cardio específico</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <h2 class="section-title">Por Que Treinar Conosco?</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon"></div>
+                <h3>Instrutores Faixa Preta</h3>
+                <p>Equipe de professores com vasta experiência em competições e ensino</p>
+            </div>
+
+            <div class="benefit-item">
+                <div class="benefit-icon"></div>
+                <h3>Treino Personalizado</h3>
+                <p>Acompanhamento individual para atingir seus objetivos específicos</p>
+            </div>
+
+            <div class="benefit-item">
+                <div class="benefit-icon"></div>
+                <h3>Infraestrutura Premium</h3>
+                <p>Tatames profissionais, vestiários completos e equipamentos de primeira</p>
+            </div>
+
+            <div class="benefit-item">
+                <div class="benefit-icon"></div>
+                <h3>Comunidade Forte</h3>
+                <p>Faça parte de uma família que se apoia e evolui junto</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="schedule" class="schedule">
+        <h2 class="section-title">Horários das Aulas</h2>
+        <div class="schedule-table">
+            <div class="schedule-row schedule-header">
+                <div class="schedule-cell">Horário</div>
+                <div class="schedule-cell">Segunda a Sexta</div>
+                <div class="schedule-cell">Sábado</div>
+            </div>
+            <div class="schedule-row">
+                <div class="schedule-cell">06:00 - 07:30</div>
+                <div class="schedule-cell">BJJ Fundamentals</div>
+                <div class="schedule-cell">Open Mat</div>
+            </div>
+            <div class="schedule-row">
+                <div class="schedule-cell">12:00 - 13:00</div>
+                <div class="schedule-cell">MMA Técnico</div>
+                <div class="schedule-cell">-</div>
+            </div>
+            <div class="schedule-row">
+                <div class="schedule-cell">18:00 - 19:00</div>
+                <div class="schedule-cell">BJJ No-Gi</div>
+                <div class="schedule-cell">Sparring</div>
+            </div>
+            <div class="schedule-row">
+                <div class="schedule-cell">19:00 - 20:30</div>
+                <div class="schedule-cell">MMA Avançado</div>
+                <div class="schedule-cell">-</div>
+            </div>
+            <div class="schedule-row">
+                <div class="schedule-cell">20:30 - 22:00</div>
+                <div class="schedule-cell">BJJ Gi Avançado</div>
+                <div class="schedule-cell">-</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Entre em Contato</h2>
+        <p style="color: #aaa; max-width: 600px; margin: 0 auto 2rem;">Agende sua aula experimental gratuita e descubra o poder das artes marciais!</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>📍 Endereço</h3>
+                <p style="color: #aaa;">Rua dos Lutadores, 123<br>Lisboa</p>
+            </div>
+            <div class="contact-item">
+                <h3>📱 Contacto</h3>
+                <p style="color: #aaa;">(+351) 961 234 567<br>WhatsApp disponível</p>
+            </div>
+            <div class="contact-item">
+                <h3>📧 E-mail</h3>
+                <p style="color: #aaa;">contato@LFA.com<br>Resposta em 24h</p>
+            </div>
+        </div>
+        <a href="#home" class="cta-button" style="margin-top: 2rem;">Comece Sua Jornada Hoje</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 LFA - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="routes/auth.js"></script>
+</body>
+</html>
