@@ -1,0 +1,410 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(34, 197, 94, 0.3);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+header img {
+  max-width: 150px;
+  transition: transform 0.3s ease;
+}
+
+header img:hover {
+  transform: scale(1.05);
+}
+
+header button {
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(135deg, #22c55e, #10b981);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+header button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(34, 197, 94, 0.4);
+}
+
+/* Breadcrumb Styles */
+ul {
+  list-style: none;
+}
+
+ul.breadcrumb {
+  width: 100%;
+  padding: 10px 0;
+  background: transparent;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+ul.breadcrumb li {
+  display: inline;
+  font-size: 0.9rem;
+}
+
+ul.breadcrumb li+li:before {
+  padding: 0 8px;
+  color: #22c55e;
+  content: "/\00a0";
+}
+
+ul.breadcrumb li a {
+  color: #22c55e;
+  text-decoration: none;
+  transition: all 0.3s;
+  position: relative;
+  font-weight: 500;
+}
+
+ul.breadcrumb li a:hover {
+  color: #10b981;
+}
+
+ul.breadcrumb li a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #22c55e;
+  transition: width 0.3s;
+}
+
+ul.breadcrumb li a:hover::after {
+  width: 100%;
+}
+
+/* Main Content */
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 120px 5% 40px;
+}
+
+/* Page Title */
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  margin: 120px 0 2rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, #22c55e, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideUpHero 1s ease-out;
+}
+
+@keyframes slideUpHero {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section Styles */
+.classes {
+  padding: 3rem 5%;
+  background: linear-gradient(135deg, #0a0a0a 0%, #0a1a0a 50%, #0a0a0a 100%);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #22c55e;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: slideUpHero 1s ease-out 0.2s backwards;
+}
+
+/* Athletes Grid */
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  animation: slideUpHero 1s ease-out 0.4s backwards;
+}
+
+/* Athlete Card */
+.class-card {
+  background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+  padding: 0;
+  border-radius: 15px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  transition: all 0.3s;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.class-card:hover {
+  transform: translateY(-10px);
+  border-color: #22c55e;
+  box-shadow: 0 20px 40px rgba(34, 197, 94, 0.3);
+}
+
+.class-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.class-card:hover::before {
+  opacity: 1;
+}
+
+/* Card Image Container */
+.class-card h3 {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.class-card h3 center {
+  display: block;
+  font-size: 1.8rem;
+  padding: 1.5rem;
+  color: #22c55e;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.class-card h3 img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.class-card:hover h3 img {
+  transform: scale(1.05);
+}
+
+/* Nickname/Quote */
+.class-card h3[color="white"] {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #aaa !important;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  background: rgba(34, 197, 94, 0.05);
+}
+
+/* Card Description */
+.class-card p {
+  color: #aaa;
+  line-height: 1.8;
+  padding: 1rem 1.5rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* Graduation List */
+.class-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 1.5rem;
+  color: #22c55e;
+  font-weight: 600;
+  text-align: left;
+}
+
+.class-card li {
+  padding: 0.75rem 0;
+  color: #fff;
+  border-bottom: 1px solid rgba(34, 197, 94, 0.1);
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  font-weight: 400;
+}
+
+.class-card li:hover {
+  padding-left: 10px;
+  color: #22c55e;
+}
+
+.class-card li:last-child {
+  border-bottom: none;
+}
+
+/* Link Styling */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Placeholder Styling */
+.class-card:not(:first-child) {
+  opacity: 0.7;
+}
+
+.class-card:not(:first-child):hover {
+  opacity: 1;
+}
+
+/* Table Centering */
+.centerTable {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .classes-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 5%;
+  }
+
+  header button {
+    width: 100%;
+  }
+
+  ul.breadcrumb {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin: 100px 0 2rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .classes {
+    padding: 2rem 3%;
+  }
+
+  .classes-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .class-card h3 center {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+
+  .class-card h3 img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin: 90px 0 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .classes {
+    padding: 1.5rem 3%;
+  }
+
+  .class-card h3 center {
+    font-size: 1.3rem;
+    padding: 0.8rem;
+  }
+
+  .class-card h3 img {
+    height: 200px;
+  }
+
+  .class-card ul {
+    padding: 1rem;
+  }
+
+  .class-card li {
+    font-size: 0.9rem;
+    padding: 0.6rem 0;
+  }
+
+  header img {
+    max-width: 120px;
+  }
+}
+
+/* Loading Animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.class-card.loading {
+  animation: pulse 2s ease-in-out infinite;
+}

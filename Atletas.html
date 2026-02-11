@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atletas - LFA</title>
+    <link rel="stylesheet" href="css/styleMenuAtletas.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="media/tiny.png" alt="LFA Logo">
+        </a>
+        <button id="addAtletaBtn" onclick="window.location.href='Adicionar_Atleta.html'">Adicionar Atleta</button>
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li>Atletas</li>
+        </ul>
+    </header>
+    
+    <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;">Atletas</h1>
+
+    <section id="classes" class="classes">
+        <h2 class="section-title">Conhece os nossos atletas!</h2>
+        <div class="classes-grid">
+            <!-- Atleta 1: Simão Costa -->
+            <a href="Atletas/SimãoCosta.html" style="text-decoration: none;">
+                <div class="class-card">
+                    <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                        <center>Simão Costa</center>
+                        <img src="media/sybau.png" alt="Simão Costa">
+                    </h3>
+                    <h3 color="white">"SYBAU💚"</h3>
+                    <ul>
+                        Graduação por Modalidade:
+                        <br>
+                        <li>BJJ: Faixa Preta, 2 graus</li>
+                        <li>MMA: Diploma de Reconhecimento de Faixa Preta de MMA pela IMMAF</li>
+                        <li>Muay Thai: Black Khan</li>
+                        <li>Karate: Faixa Preta 4ºDAN</li>
+                    </ul>
+                </div>
+            </a>
+
+            <!-- Atleta 2: Placeholder -->
+            <div class="class-card">
+                <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <center>&lt;Inserir Nome&gt;</center>
+                    <img src="media/placeholder-athlete.jpg" alt="Atleta">
+                </h3>
+                <p>&lt;Inserir breve descrição&gt;</p>
+                <ul>
+                    Graduação por Modalidade:
+                    <li>BJJ: [Graduação]</li>
+                    <li>MMA: [Graduação]</li>
+                    <li>Muay Thai: [Graduação]</li>
+                    <li>Karate: [Graduação]</li>
+                </ul>
+            </div>
+
+            <!-- Atleta 3: Placeholder -->
+            <div class="class-card">
+                <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <center>&lt;Inserir Nome&gt;</center>
+                    <img src="media/placeholder-athlete.jpg" alt="Atleta">
+                </h3>
+                <p>&lt;Inserir breve descrição&gt;</p>
+                <ul>
+                    Graduação por Modalidade:
+                    <li>BJJ: [Graduação]</li>
+                    <li>MMA: [Graduação]</li>
+                    <li>Muay Thai: [Graduação]</li>
+                    <li>Karate: [Graduação]</li>
+                </ul>
+            </div>
+
+            <!-- Atleta 4: Placeholder -->
+            <div class="class-card">
+                <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <center>&lt;Inserir Nome&gt;</center>
+                    <img src="media/placeholder-athlete.jpg" alt="Atleta">
+                </h3>
+                <p>&lt;Inserir breve descrição&gt;</p>
+                <ul>
+                    Graduação por Modalidade:
+                    <li>BJJ: [Graduação]</li>
+                    <li>MMA: [Graduação]</li>
+                    <li>Muay Thai: [Graduação]</li>
+                    <li>Karate: [Graduação]</li>
+                </ul>
+            </div>
+
+            <!-- Atleta 5: Placeholder -->
+            <div class="class-card">
+                <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <center>&lt;Inserir Nome&gt;</center>
+                    <img src="media/placeholder-athlete.jpg" alt="Atleta">
+                </h3>
+                <p>&lt;Inserir breve descrição&gt;</p>
+                <ul>
+                    Graduação por Modalidade:
+                    <li>BJJ: [Graduação]</li>
+                    <li>MMA: [Graduação]</li>
+                    <li>Muay Thai: [Graduação]</li>
+                    <li>Karate: [Graduação]</li>
+                </ul>
+            </div>
+
+            <!-- Atleta 6: Placeholder -->
+            <div class="class-card">
+                <h3 style="font-family: Georgia, 'Times New Roman', Times, serif;">
+                    <center>&lt;Inserir Nome&gt;</center>
+                    <img src="media/placeholder-athlete.jpg" alt="Atleta">
+                </h3>
+                <p>&lt;Inserir breve descrição&gt;</p>
+                <ul>
+                    Graduação por Modalidade:
+                    <li>BJJ: [Graduação]</li>
+                    <li>MMA: [Graduação]</li>
+                    <li>Muay Thai: [Graduação]</li>
+                    <li>Karate: [Graduação]</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add smooth scroll animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.class-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
